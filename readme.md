@@ -2,14 +2,14 @@
 
 **Transformer-based, DETR/Mask3D-style instance segmentation of individual trees (trunk + crown) from raw 3D point clouds, trained entirely on synthetic forest data.**
 
+<p align="center">
+  <img src="images\main.png" width="100%" alt="AI Dataset 1">
+</p>
 
 > This repository is a **portfolio showcase**. The training/inference codebase is private; this page documents the system design, the engineering decisions behind it, and the results. I'm happy to walk through the code or run a live demo on request — see [Contact](#contact).
 >
 > **Status: active work in progress.** Numbers below are from the current iteration of a pipeline trained purely on synthetic data and evaluated zero-shot on real point clouds — they're shared as-is, warts included, because I think the honest trajectory is more useful to see than a polished snapshot.
 
-<p align="center">
-  <img src="images\main.png" width="100%" alt="AI Dataset 1">
-</p>
 ---
 
 ## TL;DR

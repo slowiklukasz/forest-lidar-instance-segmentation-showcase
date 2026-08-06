@@ -1,0 +1,74 @@
+<svg viewBox="0 0 1080 720" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4b5563"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1080" height="720" fill="#ffffff"/>
+
+  <text x="540" y="42" text-anchor="middle" font-size="26" font-weight="700" fill="#14532d">Two-Stage Forest Instance Segmentation — Architecture Overview</text>
+
+  <!-- Input -->
+  <rect x="420" y="70" width="240" height="52" rx="10" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.5"/>
+  <text x="540" y="102" text-anchor="middle" font-size="16" fill="#111827">Raw 3D Point Cloud (forest patch)</text>
+  <line x1="540" y1="122" x2="540" y2="150" stroke="#4b5563" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Stage 1 group -->
+  <rect x="60" y="150" width="960" height="230" rx="16" fill="#f0fdf4" stroke="#16a34a" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="90" y="180" font-size="17" font-weight="700" fill="#166534">STAGE 1 — Point-wise Backbone &amp; Heads</text>
+
+  <rect x="420" y="196" width="240" height="52" rx="10" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="540" y="222" text-anchor="middle" font-size="15" fill="#14532d" font-weight="600">Swappable Backbone</text>
+  <text x="540" y="240" text-anchor="middle" font-size="11.5" fill="#166534">SpConv · PointNet++ · PointNeXt · PTv3</text>
+
+  <line x1="540" y1="248" x2="540" y2="270" stroke="#4b5563" stroke-width="2"/>
+  <line x1="200" y1="270" x2="880" y2="270" stroke="#4b5563" stroke-width="2"/>
+  <line x1="200" y1="270" x2="200" y2="292" stroke="#4b5563" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="540" y1="270" x2="540" y2="292" stroke="#4b5563" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="880" y1="270" x2="880" y2="292" stroke="#4b5563" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="90" y="292" width="220" height="66" rx="10" fill="#ffffff" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="200" y="318" text-anchor="middle" font-size="14" font-weight="600" fill="#14532d">Semantic Head</text>
+  <text x="200" y="336" text-anchor="middle" font-size="11.5" fill="#374151">background / trunk / crown</text>
+
+  <rect x="430" y="292" width="220" height="66" rx="10" fill="#ffffff" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="540" y="318" text-anchor="middle" font-size="14" font-weight="600" fill="#14532d">Instance Embedding Head</text>
+  <text x="540" y="336" text-anchor="middle" font-size="11.5" fill="#374151">per-point identity signature</text>
+
+  <rect x="770" y="292" width="220" height="66" rx="10" fill="#ffffff" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="880" y="318" text-anchor="middle" font-size="14" font-weight="600" fill="#14532d">Saliency Head</text>
+  <text x="880" y="336" text-anchor="middle" font-size="11.5" fill="#374151">tree-center confidence</text>
+
+  <line x1="540" y1="410" x2="540" y2="380" stroke="#4b5563" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Stage 2 group -->
+  <rect x="60" y="410" width="960" height="230" rx="16" fill="#eff6ff" stroke="#2563eb" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="90" y="440" font-size="17" font-weight="700" fill="#1e3a8a">STAGE 2 — Query-based Instance Decoder</text>
+
+  <rect x="90" y="456" width="230" height="60" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="205" y="480" text-anchor="middle" font-size="14" font-weight="600" fill="#1e3a8a">Trunk-anchored</text>
+  <text x="205" y="498" text-anchor="middle" font-size="14" font-weight="600" fill="#1e3a8a">Query Sampling</text>
+
+  <line x1="320" y1="486" x2="380" y2="486" stroke="#4b5563" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="385" y="456" width="310" height="60" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="540" y="480" text-anchor="middle" font-size="14" font-weight="600" fill="#1e3a8a">Custom Transformer Decoder</text>
+  <text x="540" y="498" text-anchor="middle" font-size="11.5" fill="#1e40af">geometry-aware attention · iterative refinement</text>
+
+  <line x1="700" y1="486" x2="750" y2="486" stroke="#4b5563" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="755" y="456" width="235" height="60" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="872" y="480" text-anchor="middle" font-size="14" font-weight="600" fill="#1e3a8a">Mask Head</text>
+  <text x="872" y="498" text-anchor="middle" font-size="11.5" fill="#1e40af">per-query point masks</text>
+
+  <line x1="872" y1="516" x2="872" y2="546" stroke="#4b5563" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="700" y="546" width="290" height="52" rx="10" fill="#bfdbfe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="845" y="577" text-anchor="middle" font-size="14" font-weight="600" fill="#1e3a8a">Hungarian Matching (training)</text>
+
+  <!-- Output -->
+  <line x1="540" y1="640" x2="540" y2="665" stroke="#4b5563" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="260" y="665" width="560" height="44" rx="10" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.5"/>
+  <text x="540" y="692" text-anchor="middle" font-size="14.5" font-weight="600" fill="#713f12">Output: per-point semantic labels + per-tree instance masks</text>
+</svg>

@@ -41,7 +41,7 @@ The overall system design was informed in part by ideas from [**ForestFormer3D**
 
 - Scenes are exported as `.laz`/`.las` patches with per-point semantic labels (`background` / `trunk` / `crown`) and per-point instance IDs (`treeID`).
 - Generation pipeline (Blender-based procedural forest + point-cloud simulation) is a **separate project** — not part of this repo.
-- Training patches: ~20 m × 20 m tiles with a 1 m margin, resampled to a target density (points/m²) via an **area-aware adaptive sampler** (estimates true footprint area from an occupancy grid rather than assuming a fixed patch size, so density stays consistent across partially-empty tiles).
+- Training patches: ~20 m × 20 m tiles with a 1 m margin, resampled to a **fixed target density of ~100 points/m²** via an **area-aware adaptive sampler** (estimates true footprint area from an occupancy grid rather than assuming a fixed patch size, so density stays consistent across partially-empty tiles). This is a deliberately low-density working regime, not a "best case" cherry-picked density — the same budget applies at both training and inference time.
 - **Training is 100% synthetic** — no real annotated data is used to fit the model. Generalization is checked zero-shot on **29 real-world plots (~1,400 GT trees) spanning 8 independent acquisition platforms** from the [FOR-instance v2](https://paperswithcode.com/dataset/for-instance) benchmark (ALS, UAV, mobile and terrestrial laser scanning) — giving an honest, deliberately hard sim-to-real signal rather than only a synthetic-to-synthetic validation split.
 - The whole pipeline (data generation → training → evaluation) is designed to run on **budget cloud GPUs** (Paperspace Gradient free/low-tier instances) — a deliberate constraint that shaped a number of engineering choices throughout the training setup, from memory management to normalization and loss-weighting strategy.
 
@@ -120,7 +120,7 @@ A significant part of the engineering effort went into a large suite of **fully 
 
 ## 4. Results
 
-**Zero-shot evaluation on 29 real-world plots (1,410 GT trees) across 8 acquisition platforms** — the model never sees real data during training, only synthetic scenes.
+**Zero-shot evaluation on 29 real-world plots (1,410 GT trees) across 8 acquisition platforms** — the model never sees real data during training, only synthetic scenes. Real point clouds are resampled to the same **~100 points/m² working density** used in training, rather than evaluated at their native (often much higher) density — this keeps the sim-to-real comparison honest and reflects the low-density regime the whole system is designed around.
 
 ### Instance segmentation (micro-averaged, pooled across all scenes)
 
@@ -140,7 +140,7 @@ Per-scene (macro) results at IoU ≥ 0.50 follow the same pattern, with substant
 <!-- ![Instance segmentation gallery](images/instance_gallery.png) -->
 
 <p align="center">
-   <i>4-panel prediction grid</i>
+   <i>4-panel prediction grid (100 pts/m2)</i>
    <br>
    <br>
   <img src="images\res_1.png" width="90%" alt="AI Dataset 1">
@@ -148,7 +148,7 @@ Per-scene (macro) results at IoU ≥ 0.50 follow the same pattern, with substant
 </p>
 
 <p align="center">
-   <i>Instance segmentation gallery</i>
+   <i>Instance segmentation gallery (100 pts/m2)</i>
    <br>
    <br>
   <img src="images\culs_test.bmp" width="90%" alt="AI Dataset 1">
@@ -175,5 +175,5 @@ Per-scene (macro) results at IoU ≥ 0.50 follow the same pattern, with substant
 
 ## Contact
 
-**[Łukasz Słowik]** — open to opportunities in 3D perception / point cloud ML / applied CV.
+**Łukasz Słowik** — open to opportunities in 3D perception / point cloud ML / applied CV.
 [[LinkedIn](https://www.linkedin.com/in/%C5%82ukasz-s%C5%82owik-650290226/)] · Email: slowik.lukasz1988@gmail.com

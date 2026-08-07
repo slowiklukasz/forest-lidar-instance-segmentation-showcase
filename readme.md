@@ -138,25 +138,31 @@ Per-scene (macro) results at IoU ≥ 0.50 follow the same pattern, with substant
 <!-- ![Confusion matrix](images/confusion_matrix.png) -->
 <!-- ![4-panel prediction grid](images/prediction_grid.png) -->
 <!-- ![Instance segmentation gallery](images/instance_gallery.png) -->
-
+<br>
 <p align="center">
-   <i>4-panel prediction grid (100 pts/m2)</i>
+   <i>Inside a training step: GT vs. predicted semantics vs. query seeds vs. final instances (20×20 m patches, ~100 pts/m²)</i>
    <br>
    <br>
-  <img src="images\res_1.png" width="90%" alt="AI Dataset 1">
-  <img src="images\res_2.png" width="90%" alt="AI Dataset 1">
+  <img src="images\res_3.png" width="90%" alt="AI Predictions">
 </p>
 
-<!-- <p align="center">
-   <i>Instance segmentation gallery (100 pts/m2)</i>
+<p align="center">
+   <i>Full-scene inference — predicted semantic and instance segmentation on merged point clouds (~100 pts/m²)</i>
    <br>
    <br>
-  <img src="images\culs_test.bmp" width="90%" alt="AI Dataset 1">
-  <img src="images\nbio_test.bmp" width="90%" alt="AI Dataset 1">
-  <img src="images\nbio2_test.bmp" width="90%" alt="AI Dataset 1">
-  <img src="images\nbio2_tet-2.bmp" width="90%" alt="AI Dataset 1">
-  <img src="images\yuchen_test.bmp" width="90%" alt="AI Dataset 1">
-</p> -->
+  <img src="images\CULS_CULS_plot_2_annotated_test_merged_vis_pred.png" width="90%" alt="AI Predictions">
+  <img src="images\NIBIO_NIBIO_plot_5_annotated_test_merged_vis_pred.png" width="90%" alt="AI Predictions">
+  <img src="images\NIBIO_NIBIO_plot_17_annotated_test_merged_vis_pred.png" width="90%" alt="AI Predictions">
+  <img src="images\NIBIO2_NIBIO2_plot27_annotated_test_merged_vis_pred.png" width="90%" alt="AI Predictions">
+  <img src="images\SCION_SCION_plot_31_annotated_test_merged_vis_pred.png" width="90%" alt="AI Predictions">
+  <img src="images\SCION_SCION_plot_35_annotated_val_merged_vis_pred.png" width="90%" alt="AI Predictions">
+  <img src="images\RMIT_RMIT_test_test_merged_vis_pred.png" width="90%" alt="AI Predictions">
+  <img src="images\NIBIO2_NIBIO2_plot47_annotated_val_merged_vis_pred.png" width="90%" alt="AI Predictions">
+  <img src="images\CULS_CULS_plot_3_annotated_val_merged_vis_pred.png" width="90%" alt="AI Predictions">
+  <img src="images\NIBIO_NIBIO_plot_23_annotated_test_merged_vis_pred.png" width="90%" alt="AI Predictions">
+  <img src="images\NIBIO2_NIBIO2_plot3_annotated_test_merged_vis_pred.png" width="90%" alt="AI Predictions">
+  <img src="images\NIBIO2_NIBIO2_plot54_annotated_val_merged_vis_pred.png" width="90%" alt="AI Predictions">
+</p>
 
 
 > Semantic segmentation metrics on the real test set are currently being re-validated (a label-mapping mismatch between the synthetic and real ground truth schemas needs fixing before those numbers are trustworthy) — omitted here for now rather than published prematurely.

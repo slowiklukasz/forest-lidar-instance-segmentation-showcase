@@ -147,7 +147,7 @@ Per-scene (macro) results at IoU ≥ 0.50 follow the same pattern, with substant
   <img src="images\res_2.png" width="90%" alt="AI Dataset 1">
 </p>
 
-<p align="center">
+<!-- <p align="center">
    <i>Instance segmentation gallery (100 pts/m2)</i>
    <br>
    <br>
@@ -156,7 +156,7 @@ Per-scene (macro) results at IoU ≥ 0.50 follow the same pattern, with substant
   <img src="images\nbio2_test.bmp" width="90%" alt="AI Dataset 1">
   <img src="images\nbio2_tet-2.bmp" width="90%" alt="AI Dataset 1">
   <img src="images\yuchen_test.bmp" width="90%" alt="AI Dataset 1">
-</p>
+</p> -->
 
 
 > Semantic segmentation metrics on the real test set are currently being re-validated (a label-mapping mismatch between the synthetic and real ground truth schemas needs fixing before those numbers are trustworthy) — omitted here for now rather than published prematurely.

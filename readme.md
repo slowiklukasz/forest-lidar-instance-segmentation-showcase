@@ -138,6 +138,38 @@ Per-scene (macro) results at IoU ≥ 0.50 follow the same pattern, with substant
 <!-- ![Confusion matrix](images/confusion_matrix.png) -->
 <!-- ![4-panel prediction grid](images/prediction_grid.png) -->
 <!-- ![Instance segmentation gallery](images/instance_gallery.png) -->
+<!-- <br>
+<p align="center">
+   <i>Example results — full-scene predictions on real, unseen forest plots (FOR-instance v2, ~100 pts/m²)</i>
+   <br>
+   <br>
+  <img src="images/NIBIO_plot_22.gif" width="90%" alt="Instance segmentation results"> 
+  <img src="images/CULS_plot_2.gif" width="90%" alt="Instance segmentation results">
+  <img src="images/NIBIO_MLS_MLS_burumPlot_2.gif" width="90%" alt="Instance segmentation results">
+  <img src="images/NIBIO_plot_3.gif" width="90%" alt="Instance segmentation results">
+  <img src="images/NIBIO_plot_6.gif" width="90%" alt="Instance segmentation results">
+</p> -->
+
+<br>
+<p align="center">
+   <i>Example results — full-scene predictions on real, unseen forest plots (FOR-instance v2, ~100 pts/m²)</i>
+</p>
+<br>
+
+<table align="center">
+  <tr>
+    <td><img src="images/NIBIO_plot_22.gif" width="100%" alt="Instance segmentation results"></td>
+    <td><img src="images/CULS_plot_2.gif" width="100%" alt="Instance segmentation results"></td>
+  </tr>
+  <tr>
+    <td><img src="images/NIBIO_MLS_MLS_burumPlot_2.gif" width="100%" alt="Instance segmentation results"></td>
+    <td><img src="images/NIBIO_plot_3.gif" width="100%" alt="Instance segmentation results"></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><img src="images/NIBIO_plot_6.gif" width="50%" alt="Instance segmentation results"></td>
+  </tr>
+</table>
+
 <br>
 <p align="center">
    <i>Inside a training step: GT vs. predicted semantics vs. query seeds vs. final instances (20×20 m patches, ~100 pts/m²)</i>
